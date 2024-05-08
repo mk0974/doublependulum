@@ -7,15 +7,14 @@ new_omega_phi, new_phi, new_omega_h, new_theta_h =  update_system_undamped(theta
 
 print(new_theta_h)
 
+def r_1(l_f, theta_h): #calculates the position vector of knee given a theta
+    x = l_f * np.cos(theta_h)
+    y = -l_f * np.sin(theta_h) # y defined negative in order to hang leg down
+    return np.array([x, y])
 
-# def r_1(l_f, theta_h): #calculates the position vector of knee given a theta
-#     x = l_f * np.cos(theta_h)
-#     y = -l_f * np.sin(theta_h) # y defined negative in order to hang leg down
-#     return np.array([x, y])
+r_10 = r_1(l_f, theta_h)
 
-# r_10 = r_1(l_f, theta_h)
-
-# def r_2(r_1, l_t, theta_k, phi): #calculates the position vector of ankle given a theta    
-#     x = r_1[0] + l_t * np.cos(phi)
-#     y = r_1[1] - l_t * np.sin(phi) # y defined negative in order to hang leg down
-#     return np.array([x, y])
+def r_2(r_1, l_t, theta_k, phi): #calculates the position vector of ankle given a theta    
+    x = r_1[0] + l_t * np.cos(phi)
+    y = r_1[1] - l_t * np.sin(phi) # y defined negative in order to hang leg down
+    return np.array([x, y])
